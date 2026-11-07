@@ -10,7 +10,7 @@ fi
 # Keep the normal invitation's existing social preview unchanged.
 # A separate HTML copy supplies distinct metadata for personalized guest links.
 cp public/index.html public/personal.html
-sed -i 's|content="Flemin \&amp; Naomi \| Wedding Invitation 🤍"|content="Flemin \&amp; Naomi — A Personal Invitation"|g' public/personal.html
+sed -i 's#Flemin \&amp; Naomi | Wedding Invitation 🤍#Flemin \&amp; Naomi — A Personal Invitation#g' public/personal.html
 sed -i 's|content="Friday, 15 January 2027"|content="A special wedding invitation, just for you · 15 January 2027"|g' public/personal.html
 sed -i 's|content="https://flemin-naomi.vercel.app/wedding-cover.jpg"|content="https://flemin-naomi.vercel.app/personal-cover.webp"|g' public/personal.html
 sed -i 's|content="image/jpeg"|content="image/webp"|g' public/personal.html
