@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Flemin and Naomi//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:flemin-naomi-wedding-20270115@flemin-naomi-wedding.vercel.app
+DTSTAMP:20261106T000000Z
+DTSTART:20270115T110000Z
+DTEND:20270115T160000Z
+SUMMARY:Flemin & Naomi Wedding & Reception
+LOCATION:The Green Acres, Mysuru, Karnataka
+DESCRIPTION:Wedding at 4:30 PM. Reception at 6:30 PM.
+URL:https://flemin-naomi-wedding.vercel.app/
+END:VEVENT
+END:VCALENDAR
