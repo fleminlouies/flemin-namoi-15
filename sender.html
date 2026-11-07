@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#f6f2ed">
+<title>Invitation Sender | Flemin & Naomi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{font-family:"DM Sans",Arial,sans-serif;color:#322a29;background:#f6f2ed}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px}.wrap{width:min(100%,490px)}.brand{text-align:center;margin-bottom:25px;font-family:"Cormorant Garamond",serif;font-size:32px}.brand span{color:#9b6c59}.panel{background:#fffdfa;border:1px solid #e9dfd5;border-radius:18px;padding:clamp(24px,6vw,40px);box-shadow:0 18px 50px #58433810}h1{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(35px,8vw,45px);line-height:1.05;text-align:center;margin:0 0 8px}p.sub{font-size:13px;text-align:center;line-height:1.7;color:#756a65;margin:0 0 30px}label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:9px}input{display:block;width:100%;border:1px solid #d9c9bd;border-radius:10px;background:#fff;padding:15px 14px;font:inherit;font-size:16px;outline:none}input:focus{border-color:#7c4252;box-shadow:0 0 0 3px #7c42521c}.preview{background:#f7f0ec;border-radius:9px;margin:15px 0 20px;padding:13px;font-size:12px;color:#655650;line-height:1.6;overflow-wrap:anywhere}.buttons{display:grid;gap:10px}button,a.button{border:0;border-radius:10px;padding:15px;font:600 14px "DM Sans",sans-serif;cursor:pointer;text-align:center;text-decoration:none;display:block}.primary{background:#542536;color:white}.secondary{background:#eee3db;color:#432c2c}.buttons button:disabled{opacity:.5;cursor:not-allowed}.status{min-height:18px;text-align:center;font-size:12px;color:#37644d;margin-top:12px}.history{margin-top:25px;border-top:1px solid #eee5dd;padding-top:18px}.history h2{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#746862}.chips{display:flex;gap:8px;flex-wrap:wrap}.chips button{padding:8px 11px;font-size:12px;border:1px solid #dfd1c7;background:#fff;border-radius:30px;color:#5c4640}.foot{text-align:center;color:#897c75;font-size:11px;margin:22px 0}.foot a{color:inherit}
+</style></head><body><main class="wrap"><div class="brand">Flemin <span>&</span> Naomi</div><section class="panel"><h1>Invitation Sender</h1><p class="sub">A simple way to send a personal wedding invitation to your family and friends.</p>
+<label for="guest">Guest or family name</label><input id="guest" type="text" maxlength="120" placeholder="e.g. Daniel & Family" autocomplete="off">
+<div class="preview" id="preview">Enter a name to create a personalized invitation link.</div>
+<div class="buttons"><button class="primary" id="send" disabled>Send via WhatsApp</button><button class="secondary" id="copy" disabled>Copy invitation link</button><button class="secondary" id="view" disabled>Preview invitation</button></div>
+<div class="status" id="status" role="status" aria-live="polite"></div>
+<div class="history" id="history" hidden><h2>Recently used names</h2><div class="chips" id="chips"></div></div>
+</section><p class="foot">For family use. <a href="/">View wedding invitation</a></p></main>
+<script>
+(function(){
+const base="https://flemin-naomi.vercel.app/";
+const input=document.getElementById("guest"),preview=document.getElementById("preview"),status=document.getElementById("status"),history=document.getElementById("history"),chips=document.getElementById("chips");
+const buttons=["send","copy","view"].map(id=>document.getElementById(id));
+const key="fn-invitation-recent-v1";
+const clean=()=>input.value.trim().replace(/\s+/g," ").slice(0,120);
+const link=()=>base+"?guest="+encodeURIComponent(clean());
+function refresh(){const valid=!!clean();buttons.forEach(b=>b.disabled=!valid);preview.textContent=valid?link():"Enter a name to create a personalized invitation link.";status.textContent="";}
+function recent(){try{return JSON.parse(localStorage.getItem(key)||"[]").filter(v=>typeof v==="string").slice(0,8)}catch{return []}}
+function render(){const names=recent();history.hidden=!names.length;chips.replaceChildren();names.forEach(name=>{const b=document.createElement("button");b.type="button";b.textContent=name;b.addEventListener("click",()=>{input.value=name;refresh();input.focus()});chips.appendChild(b)})}
+function remember(){const name=clean();if(!name)return;try{localStorage.setItem(key,JSON.stringify([name,...recent().filter(n=>n!==name)].slice(0,8)))}catch{}render()}
+input.addEventListener("input",refresh);
+document.getElementById("send").addEventListener("click",()=>{if(!clean())return;remember();const msg="You're warmly invited to Flemin & Naomi's wedding! 💍\n\nYour personal invitation:\n"+link();window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank","noopener,noreferrer")});
+document.getElementById("copy").addEventListener("click",async()=>{if(!clean())return;try{await navigator.clipboard.writeText(link());remember();status.textContent="Invitation link copied!"}catch{status.textContent="Unable to copy automatically. Select the link above to copy."}});
+document.getElementById("view").addEventListener("click",()=>{if(!clean())return;remember();window.open(link(),"_blank","noopener,noreferrer")});
+refresh();render();
+})();
+</script></body></html>
