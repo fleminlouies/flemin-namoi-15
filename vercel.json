@@ -1,1 +1,19 @@
-{"buildCommand":"sh build.sh","outputDirectory":"public","cleanUrls":true,"trailingSlash":false}
+{
+  "buildCommand": "sh build.sh",
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "guest",
+          "value": "(.+)"
+        }
+      ],
+      "destination": "/personal.html"
+    }
+  ]
+}
