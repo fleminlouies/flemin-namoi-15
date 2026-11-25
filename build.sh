@@ -14,3 +14,5 @@ sed -i 's|content="https://flemin-naomi.vercel.app/wedding-cover.jpg"|content="h
 sed -i 's|content="image/jpeg"|content="image/webp"|g' public/personal.html
 
 cp v4.html public/v4.html
+
+cp v5.html public/v5.html
