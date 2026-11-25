@@ -12,3 +12,5 @@ fi
 cp public/index.html public/personal.html
 sed -i 's|content="https://flemin-naomi.vercel.app/wedding-cover.jpg"|content="https://flemin-naomi.vercel.app/personal-cover.webp"|g' public/personal.html
 sed -i 's|content="image/jpeg"|content="image/webp"|g' public/personal.html
+
+cp v4.html public/v4.html
