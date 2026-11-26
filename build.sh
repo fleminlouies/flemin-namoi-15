@@ -25,7 +25,7 @@ cp v8.html public/v8.html
 
 cp v9.html v9.css v9.js public/
 npm install --prefix /tmp/v9-image-tools --no-audit --no-fund sharp@0.34.5 qrcode@1.5.4 esbuild@0.25.12
-/tmp/v9-image-tools/node_modules/.bin/esbuild v9.css --minify --outfile=public/v9-final-2.css
+/tmp/v9-image-tools/node_modules/.bin/esbuild v9.css --minify --outfile=public/v9-final-3.css
 /tmp/v9-image-tools/node_modules/.bin/esbuild v9.js --minify --outfile=public/v9-final-2.js
 NODE_PATH=/tmp/v9-image-tools/node_modules node optimize-v9.cjs
 
