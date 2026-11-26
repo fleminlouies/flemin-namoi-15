@@ -30,3 +30,5 @@ main>section{border-radius:12px!important}.hero{border-radius:14px!important}.he
 .wedding-begun>span{display:inline-block;transform-origin:center;animation:wedding-heartbeat 2.8s ease-in-out infinite}@keyframes wedding-heartbeat{0%,24%,48%,100%{transform:scale(1)}12%{transform:scale(1.18)}36%{transform:scale(1.12)}}@media(prefers-reduced-motion:reduce){.wedding-begun>span{animation:none!important}}
 
 .couple-photo{position:relative;overflow:hidden;background:#510b13;margin:0 auto;width:100%;max-width:600px}.couple-photo img{display:block;width:100%;height:auto}.couple-photo:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,#510b13 0%,transparent 13%,transparent 84%,#510b13 100%)}
+
+.intro{background:linear-gradient(to bottom,rgba(255,250,240,.94),rgba(249,236,216,.83) 45%,rgba(241,227,203,.94)),url("/v10-couple.webp") center 65%/cover no-repeat!important}.intro .botanical{opacity:.12!important}
