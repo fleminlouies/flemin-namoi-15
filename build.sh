@@ -55,3 +55,6 @@ if [ -f public/v9-music-1.mp3 ]; then sed -i 's|<head>|<head><script>window.V9_M
 if [ "${VERCEL_ENV:-}" = production ]; then
   cp public/v11.html public/index.html
 fi
+
+# Generate the RSVP-free invitation from the same finished HTML.
+node -e 'const fs=require("fs");const html=fs.readFileSync("public/v11.html","utf8");const pattern=/<section class="rsvp-card" aria-label="RSVP">[\s\S]*?<\/section>/;if(!pattern.test(html))throw new Error("RSVP section not found");fs.writeFileSync("public/invite.html",html.replace(pattern,""));'
