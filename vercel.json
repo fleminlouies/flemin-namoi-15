@@ -49,7 +49,7 @@
       ]
     },
     {
-      "source": "/v9-final-1.css",
+      "source": "/v9-final-2.css",
       "headers": [
         {
           "key": "Cache-Control",
@@ -62,7 +62,7 @@
       ]
     },
     {
-      "source": "/v9-final-1.js",
+      "source": "/v9-final-2.js",
       "headers": [
         {
           "key": "Cache-Control",

@@ -25,8 +25,8 @@ cp v8.html public/v8.html
 
 cp v9.html v9.css v9.js public/
 npm install --prefix /tmp/v9-image-tools --no-audit --no-fund sharp@0.34.5 qrcode@1.5.4 esbuild@0.25.12
-/tmp/v9-image-tools/node_modules/.bin/esbuild v9.css --minify --outfile=public/v9-final-1.css
-/tmp/v9-image-tools/node_modules/.bin/esbuild v9.js --minify --outfile=public/v9-final-1.js
+/tmp/v9-image-tools/node_modules/.bin/esbuild v9.css --minify --outfile=public/v9-final-2.css
+/tmp/v9-image-tools/node_modules/.bin/esbuild v9.js --minify --outfile=public/v9-final-2.js
 NODE_PATH=/tmp/v9-image-tools/node_modules node optimize-v9.cjs
 
 NODE_PATH=/tmp/v9-image-tools/node_modules node -e "const s=require('sharp');(async()=>{for(const quality of [90,85,80,75,70,60]){const out=await s('A2DF40A1-66C6-4B6F-9C28-D4AA39973332.png').resize(1200,675,{fit:'fill'}).jpeg({quality,mozjpeg:true}).toBuffer();if(out.length<=200000||quality===60){require('fs').writeFileSync('public/v9-og-2.jpg',out);console.log('OG bytes',out.length);break;}}})().catch(e=>{console.error(e);process.exit(1)})"

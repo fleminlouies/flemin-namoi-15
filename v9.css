@@ -24,3 +24,5 @@ main>section{border-radius:12px!important}.hero{border-radius:14px!important}.he
 @media(min-width:701px){body{background:#420405!important}main,.footer{max-width:600px;margin-inline:auto}.hero{height:auto!important;min-height:0!important;aspect-ratio:2/3;max-height:none!important;background-size:100% 100%!important}}
 
 .month-card .selected{color:#fff4df!important;isolation:isolate}.month-card .selected svg{z-index:-1;overflow:visible}.month-card .selected svg path{fill:#591018!important;stroke:#591018!important}
+
+.occasion-copy .countdown[hidden],.wedding-begun[hidden]{display:none!important}.wedding-begun{text-align:center;padding:12px 0;color:#f5e4c5}.wedding-begun>span{color:#d9b77c;font-size:20px}.wedding-begun h2{font:italic 500 34px/1.2 "Cormorant Garamond",serif!important;margin:8px 0!important;color:#f5e4c5!important}.occasion-copy .wedding-begun p{font:500 16px/1.5 "Cormorant Garamond",serif!important;color:#d9b77c!important;margin:8px 0!important}
