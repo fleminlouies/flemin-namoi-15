@@ -32,7 +32,7 @@ OG_HOST="${VERCEL_URL:-${VERCEL_PROJECT_PRODUCTION_URL:-flemin-naomi.vercel.app}
 sed -i "s|__V9_OG_HOST__|$OG_HOST|g" public/v9.html
 
 # Enable V9 audio only when the licensed recording is supplied.
-if [ -f v9-music.mp3 ]; then
-  cp v9-music.mp3 public/v9-music.mp3
+if [ -f "When God Made You (Wedding Version) Piano Cover by James Wong - James Wong (64k).mp3" ]; then
+  cp "When God Made You (Wedding Version) Piano Cover by James Wong - James Wong (64k).mp3" public/v9-music.mp3
   sed -i 's|<head>|<head><script>window.V9_MUSIC_AVAILABLE=true;</script>|' public/v9.html
 fi
