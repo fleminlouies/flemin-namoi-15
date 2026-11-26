@@ -30,3 +30,9 @@ NODE_PATH=/tmp/v9-image-tools/node_modules node optimize-v9.cjs
 NODE_PATH=/tmp/v9-image-tools/node_modules node -e "const s=require('sharp');(async()=>{for(const quality of [90,85,80,75,70,60]){const out=await s('A2DF40A1-66C6-4B6F-9C28-D4AA39973332.png').resize(1200,675,{fit:'fill'}).jpeg({quality,mozjpeg:true}).toBuffer();if(out.length<=200000||quality===60){require('fs').writeFileSync('public/v9-og-2.jpg',out);console.log('OG bytes',out.length);break;}}})().catch(e=>{console.error(e);process.exit(1)})"
 OG_HOST="${VERCEL_URL:-${VERCEL_PROJECT_PRODUCTION_URL:-flemin-naomi.vercel.app}}"
 sed -i "s|__V9_OG_HOST__|$OG_HOST|g" public/v9.html
+
+# Enable V9 audio only when the licensed recording is supplied.
+if [ -f v9-music.mp3 ]; then
+  cp v9-music.mp3 public/v9-music.mp3
+  sed -i 's|<head>|<head><script>window.V9_MUSIC_AVAILABLE=true;</script>|' public/v9.html
+fi
