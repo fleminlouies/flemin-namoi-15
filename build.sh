@@ -45,3 +45,8 @@ if [ "${VERCEL_ENV:-}" = production ]; then
   cp public/index.html public/legacy.html
   cp public/v9.html public/index.html
 fi
+
+cp v11.html public/
+/tmp/v9-image-tools/node_modules/.bin/esbuild v11.css --minify --outfile=public/v11-final-1.css
+sed -i "s|__V9_OG_HOST__|$OG_HOST|g" public/v11.html
+if [ -f public/v9-music-1.mp3 ]; then sed -i 's|<head>|<head><script>window.V9_MUSIC_AVAILABLE=true;</script>|' public/v11.html; fi
