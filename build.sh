@@ -47,7 +47,7 @@ if [ "${VERCEL_ENV:-}" = production ]; then
 fi
 
 cp v10.html public/
-cp v10.css public/v10-overlay.css
+cp v10.css public/v10-overlay-dark.css
 if [ -f v10-couple.webp ]; then cp v10-couple.webp public/; else sed -i 's|<section class="couple-photo"[^>]*>.*</section><section class="occasion"|<section class="occasion"|' public/v10.html; fi
 sed -i "s|__V9_OG_HOST__|$OG_HOST|g" public/v10.html
 if [ -f public/v9-music-1.mp3 ]; then sed -i 's|<head>|<head><script>window.V9_MUSIC_AVAILABLE=true;</script>|' public/v10.html; fi
