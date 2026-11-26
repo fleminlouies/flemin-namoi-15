@@ -22,3 +22,5 @@ cp v6.html public/v6.html
 cp v7.html public/v7.html
 
 cp v8.html public/v8.html
+
+cp v9.html public/v9.html
