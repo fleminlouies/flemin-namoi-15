@@ -16,3 +16,5 @@ sed -i 's|content="image/jpeg"|content="image/webp"|g' public/personal.html
 cp v4.html public/v4.html
 
 cp v5.html public/v5.html
+
+cp v6.html public/v6.html
