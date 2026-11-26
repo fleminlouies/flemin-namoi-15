@@ -24,4 +24,5 @@ cp v7.html public/v7.html
 cp v8.html public/v8.html
 
 cp v9.html public/v9.html
-cp "8BEC17E6-8DDC-4B16-8B42-B98B9653B260.png" public/
+npm install --prefix /tmp/v9-image-tools --no-audit --no-fund sharp@0.34.5
+NODE_PATH=/tmp/v9-image-tools/node_modules node optimize-v9.cjs
